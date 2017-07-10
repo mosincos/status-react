@@ -35,7 +35,8 @@
 (defn register-handler
   ([name handler] (register-handler name nil handler))
   ([name middleware handler]
-   (re-core/register-handler name [debug-handlers-names (when js/goog.DEBUG check-spec) middleware] handler)))
+    ;; TODO: enable specs
+   (re-core/register-handler name [debug-handlers-names #_(when js/goog.DEBUG check-spec) middleware] handler)))
 
 (defn get-hashtags [status]
   (if status
